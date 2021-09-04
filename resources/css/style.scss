@@ -1,11 +1,10 @@
 
-:root {
-    --custom-width: 30%;
-    --custom-color: aliceblue;
-}
+// variables
+$custom-width: 30%;
+$custom-color: aliceblue;
+
 
 // mixins
-
 @mixin for-tablet-landscape-up {
     @media (min-width: 991px) { @content; }
 }
@@ -26,13 +25,13 @@
     height: auto;
 
     @include for-tablet-landscape-up {
-        width: var(--custom-width);
+        width: $custom-width;
         height: 100%;
     }
 }
 
 .nav-content {
-    color: var(--custom-color);
+    color: $custom-color;
 
     @include for-tablet-landscape-up {
         position: absolute;
@@ -45,11 +44,7 @@
 
 .flex-container {
     padding: 10px;
-    // position: relative;
-    // padding: 20px;
     display: flex;
-    // align-items: center;
-    // justify-content: flex-start;
     justify-content: center;
 }
 
@@ -83,23 +78,12 @@
     @include for-tablet-landscape-up {
         display: none;
     }
-
-    // @media (min-width: 991px) {
-    //     display: none;
-    // }
-    // @media (max-width: 990px) {
-    //     display: inline-block;
-    //     cursor: pointer;
-    //     flex: 0 1 auto;
-    //     margin-left: auto;
-    //     padding-inline: 20px;
-    // }
   }
   
   .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: var(--custom-color);
+    background-color: $custom-color;
     margin: 6px 0;
     transition: 0.4s;
   }
@@ -124,19 +108,12 @@
     @include for-tablet-landscape-up {
         display: flex;
     }
-    
-    // @media (min-width: 991px) {
-    //     display: flex;
-    // }
-    // @media (max-width: 990px) {
-    //     display: none;
-    // }
 }
 
 .nav-container nav a{
     padding: 20px;
     font-size: large;
-    color: var(--custom-color);
+    color: $custom-color;
 }
 
 
@@ -148,9 +125,9 @@
     left: 0;
     top: 59px;
     
-    @include for-tablet-landscape-up() {
-        width: calc(100% - var(--custom-width));
-        left: var(--custom-width);
+    @include for-tablet-landscape-up {
+        width: 100% - $custom-width;
+        left: $custom-width;
         bottom: 0px;
         top: 0px;
     }
