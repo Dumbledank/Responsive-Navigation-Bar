@@ -1,0 +1,165 @@
+
+:root {
+    --custom-width: 30%;
+    --custom-color: aliceblue;
+}
+
+// mixins
+
+@mixin for-tablet-landscape-up {
+    @media (min-width: 991px) { @content; }
+}
+
+/* NAV */
+.nav-container {
+    background-color: #2d3e4f;
+    opacity: .9;
+    position: fixed;
+
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    
+    width: 100%;
+    height: auto;
+
+    @include for-tablet-landscape-up {
+        width: var(--custom-width);
+        height: 100%;
+    }
+}
+
+.nav-content {
+    color: var(--custom-color);
+
+    @include for-tablet-landscape-up {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.flex-container {
+    padding: 10px;
+    // position: relative;
+    // padding: 20px;
+    display: flex;
+    // align-items: center;
+    // justify-content: flex-start;
+    justify-content: center;
+}
+
+.nav-container h1 {
+    text-align: center;
+    flex: 0 1 auto;
+
+    // include the optional block of code below if you want to center the title element
+    // start
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    @include for-tablet-landscape-up {
+        position: relative;
+        transform: none;
+        left: auto;
+    }
+    // end
+}
+
+    // MENUE ICON
+
+#icon-container {
+    display: inline-block;
+    cursor: pointer;
+    flex: 0 1 auto;
+    margin-left: auto;
+    padding-inline: 20px;
+
+    @include for-tablet-landscape-up {
+        display: none;
+    }
+
+    // @media (min-width: 991px) {
+    //     display: none;
+    // }
+    // @media (max-width: 990px) {
+    //     display: inline-block;
+    //     cursor: pointer;
+    //     flex: 0 1 auto;
+    //     margin-left: auto;
+    //     padding-inline: 20px;
+    // }
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--custom-color);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+#nav-animation {
+    text-align: center;
+    flex-direction: column;
+    display: none;
+
+    @include for-tablet-landscape-up {
+        display: flex;
+    }
+    
+    // @media (min-width: 991px) {
+    //     display: flex;
+    // }
+    // @media (max-width: 990px) {
+    //     display: none;
+    // }
+}
+
+.nav-container nav a{
+    padding: 20px;
+    font-size: large;
+    color: var(--custom-color);
+}
+
+
+/* MAIN PAGE */
+.page-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 59px;
+    
+    @include for-tablet-landscape-up() {
+        width: calc(100% - var(--custom-width));
+        left: var(--custom-width);
+        bottom: 0px;
+        top: 0px;
+    }
+}
+
+    /* BANNER */
+.banner {
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/wave.png);
+    background-size: cover;
+}
